@@ -15,7 +15,8 @@ class PokemonAdapter(
     private var pokemonViewModel: PokemonViewModel
 ) : RecyclerView.Adapter<PokemonAdapter.DataViewHolder>() {
 
-    class DataViewHolder(itemView: View, private var pokemonViewModel: PokemonViewModel) : RecyclerView.ViewHolder(itemView) {
+    class DataViewHolder(itemView: View, private var pokemonViewModel: PokemonViewModel) :
+        RecyclerView.ViewHolder(itemView) {
         fun bind(pokemon: Pokemon) {
             itemView.tvName.text = pokemon.name
             Glide.with(itemView.imageViewAvatar.context)

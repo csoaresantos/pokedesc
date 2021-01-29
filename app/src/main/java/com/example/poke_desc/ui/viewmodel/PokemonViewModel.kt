@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.poke_desc.data.model.Pokemon
 import com.example.poke_desc.data.model.PokemonCatalog
 import com.example.poke_desc.data.repository.PokemonRepository
 import com.example.poke_desc.utils.NetworkHelper
@@ -30,9 +29,9 @@ class PokemonViewModel(
         viewModelScope.launch {
             _pokemons.postValue(Resource.loading(null))
 
-            if(networkHelper.isNetworkConnected()) {
+            if (networkHelper.isNetworkConnected()) {
                 pokemonRepository.getPokemons(offset.toString()).let {
-                    if(it.isSuccessful) {
+                    if (it.isSuccessful) {
                         _pokemons.postValue(Resource.success(it.body()))
                         offset += 20
                     } else _pokemons.postValue(Resource.error(it.errorBody().toString(), null))

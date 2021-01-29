@@ -1,14 +1,12 @@
 package com.example.poke_desc.ui.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poke_desc.R
 import com.example.poke_desc.data.model.Pokemon
@@ -64,18 +62,15 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun addScrollerListener()
-    {
+    private fun addScrollerListener() {
         //attaches scrollListener with RecyclerView
-        recyclerViewPokemon.addOnScrollListener(object : RecyclerView.OnScrollListener()
-        {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int)
-            {
+        recyclerViewPokemon.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val height = recyclerView.height
 
-                val diff = height-dy
-                if (diff < 1000){
+                val diff = height - dy
+                if (diff < 1000) {
                     pokemonViewModel.retrievePokemons()
                 }
 

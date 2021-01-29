@@ -39,4 +39,5 @@ private fun provideRetrofit(okHttpClient: OkHttpClient, BASE_URL: String): Retro
         .client(okHttpClient)
         .build()
 
-private fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+private fun provideApiService(retrofit: Retrofit): ApiService =
+    retrofit.create(ApiService::class.java)

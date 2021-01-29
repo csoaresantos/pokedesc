@@ -13,8 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner "com.example.poke_desc.KoinTestRunner"
+        //testInstrumentationRunner "com.example.poke_desc.KoinTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
         buildConfigField 'String', 'BASE_SERVICE_URL', "\"https://pokeapi.co/api/v2/\""
@@ -69,29 +69,19 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.6"
     implementation 'androidx.cardview:cardview:1.0.0'
-
     implementation 'com.google.android.material:material:1.2.0'
 
+// Espresso
+// Core library
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+// AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    // required if you want to use Mockito for unit tests
+    testImplementation 'org.mockito:mockito-core:2.24.5'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    testImplementation 'org.robolectric:robolectric:4.3'
-    testImplementation 'com.agoda.kakao:kakao:2.1.0'
-    kapt 'com.android.databinding:compiler:3.1.3'
+    // required if you want to use Mockito for Android tests
+    androidTestImplementation 'org.mockito:mockito-android:2.24.5'
 
-    // AndroidJUnitRunner and JUnit Rules
-    implementation 'androidx.test:runner:1.2.0'
-    implementation 'androidx.test:rules:1.2.0'
-
-    // Assertions
-    //espresso
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
-
-    // koin
-    implementation 'org.koin:koin-test:1.0.2'
-    // mock
-    implementation 'io.mockk:mockk:1.9.2'
-
-    testImplementation 'org.robolectric:robolectric:4.3'
-    testImplementation 'com.agoda.kakao:kakao:2.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }

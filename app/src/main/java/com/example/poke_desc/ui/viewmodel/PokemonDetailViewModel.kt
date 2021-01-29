@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class PokemonDetailViewModel(
     private val pokemonRepository: PokemonRepository,
     private val networkHelper: NetworkHelper
-): ViewModel() {
+) : ViewModel() {
     private val _pokemonDetail = MutableLiveData<Resource<Pokemon>>()
     val pokemon: LiveData<Resource<Pokemon>>
         get() = _pokemonDetail
@@ -22,13 +22,18 @@ class PokemonDetailViewModel(
         viewModelScope.launch {
             _pokemonDetail.postValue(Resource.loading(null))
             pokemonRepository.getPokemon(pokemonId).let {
-                if(networkHelper.isNetworkConnected()) {
-                    if(it.isSuccessful) {
+                if (networkHelper.isNetworkConnected()) {
+                    if (it.isSuccessful) {
                         _pokemonDetail.postValue(Resource.success(it.body()))
                     } else {
                         _pokemonDetail.postValue(Resource.error(it.body().toString(), null))
                     }
-                } else _pokemonDetail.postValue(Resource.error("Request fail, internet is missing!", null))
+                } else _pokemonDetail.postValue(
+                    Resource.error(
+                        "Request fail, internet is missing!",
+                        null
+                    )
+                )
             }
         }
     }
