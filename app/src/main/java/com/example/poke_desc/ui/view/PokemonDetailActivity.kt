@@ -29,7 +29,6 @@ class PokemonDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_pokemon_detail)
         binding.lifecycleOwner = this
-        //binding.pokemonModel = pokemonDetailViewModel.pokemon.value as Pokemon
         setupObservers()
         setupUI()
         pokemonId = intent.getIntExtra("EXTRA_POKEMON", 0)

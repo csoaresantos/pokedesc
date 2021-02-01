@@ -16,6 +16,7 @@
         android:background="@color/background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pokemonDetailLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -48,8 +49,7 @@
                 android:translationZ="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/header"
-                tools:text="skydoves" />
+                app:layout_constraintTop_toBottomOf="@id/header" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/header"

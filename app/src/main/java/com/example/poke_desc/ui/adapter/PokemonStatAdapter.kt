@@ -15,7 +15,6 @@ class PokemonStatAdapter(
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(stat: Stat) {
             itemView.name.text = stat.stat.name
-            //itemView.progressBar.progress = stat.baseStat.toInt()
             itemView.baseStat.text = stat.base_stat.toString()
         }
     }
